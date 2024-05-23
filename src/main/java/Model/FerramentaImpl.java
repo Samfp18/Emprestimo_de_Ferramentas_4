@@ -2,14 +2,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Model;
+package model;
 
 /**
  *
  * @author samue
  */
-public class FerramentaImpl implements Ferramenta {
-    private String nome;
+public  class FerramentaImpl implements Ferramenta{
+  private String nome;
     private String marca;
     private double custoAquisicao;
 
@@ -33,11 +33,12 @@ public class FerramentaImpl implements Ferramenta {
     public double getCustoAquisicao() {
         return custoAquisicao;
     }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setCustoAquisicao(double custoAquisicao) {
+        this.custoAquisicao = custoAquisicao;
+    }
 }
-
-interface Amigo {
-    String getNome();
-    String getTelefone();
-}
-
-

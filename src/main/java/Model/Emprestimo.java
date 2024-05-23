@@ -2,46 +2,53 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Model;
+package model;
 
 import java.util.Date;
-import java.util.List;
 
 /**
  *
  * @author samue
  */
-public class Emprestimo {
+public class Emprestimo{
     private Ferramenta ferramenta;
-    private Amigo amigo;
-    private Date dataEmprestimo;
-    private Date dataDevolucao;
+    private String nomeAmigo;
+    private long dataEmprestimo;
+    private Long dataDevolucao; // Usamos Long para poder representar a ausência de data com null
 
-    public Emprestimo(Ferramenta ferramenta, Amigo amigo, Date dataEmprestimo, Date dataDevolucao) {
+    public Emprestimo(Ferramenta ferramenta, String nomeAmigo, long dataEmprestimo) {
         this.ferramenta = ferramenta;
-        this.amigo = amigo;
+        this.nomeAmigo = nomeAmigo;
         this.dataEmprestimo = dataEmprestimo;
-        this.dataDevolucao = dataDevolucao;
+        this.dataDevolucao = null;
     }
 
     public Ferramenta getFerramenta() {
         return ferramenta;
     }
 
-    public Amigo getAmigo() {
-        return amigo;
+    public String getNomeAmigo() {
+        return nomeAmigo;
     }
 
-    public Date getDataEmprestimo() {
+    public long getDataEmprestimo() {
         return dataEmprestimo;
     }
 
-    public Date getDataDevolucao() {
+    public Long getDataDevolucao() {
         return dataDevolucao;
+    }
+
+    public void setDataDevolucao(long dataDevolucao) {
+        this.dataDevolucao = dataDevolucao;
     }
 
     @Override
     public String toString() {
-        return "Ferramenta: " + ferramenta.getNome() + ", Amigo: " + amigo.getNome() + ", Data de Empréstimo: " + dataEmprestimo;
+        return "Ferramenta: " + ferramenta.getNome() + ", Amigo: " + nomeAmigo + 
+               ", Data de Empréstimo: " + dataEmprestimo + 
+               ", Data de Devolução: " + (dataDevolucao == null ? "Não devolvida" : dataDevolucao);
     }
 }
+
+

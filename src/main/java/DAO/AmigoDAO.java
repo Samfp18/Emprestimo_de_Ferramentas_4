@@ -2,21 +2,22 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
  */
-package DAO;
+package dao;
 
-import Model.Amigo;
-import Model.Emprestimo;
 import java.util.List;
+import model.Amigo;
 
 /**
  *
  * @author samue
  */
 public interface AmigoDAO {
-     void cadastrar(Amigo amigo);
+    void cadastrar(Amigo amigo);
     void atualizar(Amigo amigo);
     void excluir(Amigo amigo);
     List<Amigo> listar();
-    List<Emprestimo> emprestimosAtivos();
-    boolean verificarDevolucaoFerramentas();
+    void exibirEmprestimosAtivos();
+    void verificarDevolucaoFerramentas();
+    void menuAmigos();
 }
+
