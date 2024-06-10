@@ -4,6 +4,9 @@
  */
 package model;
 
+
+
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -11,7 +14,7 @@ import java.util.Date;
  * @author samue
  */
 public class Emprestimo{
-    private Ferramenta ferramenta;
+ private Ferramenta ferramenta;
     private String nomeAmigo;
     private long dataEmprestimo;
     private Long dataDevolucao; // Usamos Long para poder representar a ausência de data com null
@@ -20,7 +23,11 @@ public class Emprestimo{
         this.ferramenta = ferramenta;
         this.nomeAmigo = nomeAmigo;
         this.dataEmprestimo = dataEmprestimo;
-        this.dataDevolucao = null;
+        this.dataDevolucao = null; // Inicializa como null para indicar que não foi devolvida
+    }
+
+    public Emprestimo(Ferramenta ferramenta, String string, long aLong, long aLong0) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     public Ferramenta getFerramenta() {
@@ -45,10 +52,15 @@ public class Emprestimo{
 
     @Override
     public String toString() {
-        return "Ferramenta: " + ferramenta.getNome() + ", Amigo: " + nomeAmigo + 
-               ", Data de Empréstimo: " + dataEmprestimo + 
-               ", Data de Devolução: " + (dataDevolucao == null ? "Não devolvida" : dataDevolucao);
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        String dataEmprestimoStr = sdf.format(new Date(dataEmprestimo));
+        String dataDevolucaoStr = (dataDevolucao == null) ? "Não devolvida" : sdf.format(new Date(dataDevolucao));
+        return "Ferramenta: " + ferramenta.getNomeF() + ", Amigo: " + nomeAmigo + 
+               ", Data de Empréstimo: " + dataEmprestimoStr + 
+               ", Data de Devolução: " + dataDevolucaoStr;
+    }
+
+    public int getId() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
-
-
